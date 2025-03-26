@@ -4,7 +4,7 @@ This is a Pytorch implementation of DKI, as described in our paper:
 Wang, X.W., Weiss, S.T. and Liu, Y.Y. [Deep Learning-based Personalized Dietary Recommendations to Achieve Desired Gut Microbial Compositions ]. 
 
 <p align="center">
-  <img src="Paper/DKI.png" alt="demo" width="600" height="470" style="display: block; margin: 0 auto;">
+  <img src="Paper/DPDR.png" alt="demo" width="600" height="470" style="display: block; margin: 0 auto;">
 </p>
 
 
@@ -19,7 +19,7 @@ We have tested this code for Python 3.8.13 and R 4.1.2.
 
 # Overview
 
-Previous studies suggested that microbial communities harbor keystone species whose removal can cause a dramatic shift in microbiome structure and functioning. Yet, an efficient method to systematically identify keystone species in microbial communities is still lacking. This is mainly due to our limited knowledge of microbial dynamics and the experimental and ethical difficulties of manipulating microbial communities. Here, we propose a Data-driven Keystone species Identification (DKI) framework based on deep learning to resolve this challenge. Our key idea is to implicitly learn the assembly rules of microbial communities from a particular habitat by training a deep learning model using microbiome samples collected from this habitat. The well-trained deep learning model enables us to quantify the community-specific keystoneness of each species in any microbiome sample from this habitat by conducting a thought experiment on species removal. We systematically validated this DKI framework using synthetic data generated from a classical population dynamics model in community ecology. We then applied DKI to analyze human gut, oral microbiome, soil, and coral microbiome data. We found that those taxa with high median keystoneness across different communities display strong community specificity, and many of them have been reported as keystone taxa in literature. The presented DKI framework demonstrates the power of machine learning in tackling a fundamental problem in community ecology, paving the way for the data-driven management of complex microbial communities.
+Dietary intervention is an effective way to alter the gut microbiome to promote human health. Yet, due to our limited knowledge of diet-microbe interactions and the highly personalized gut microbial compositions, an efficient method to prescribe personalized dietary recommendations to achieve desired gut microbial compositions is still lacking. Here, we propose a deep learning framework to resolve this challenge. Our key idea is to implicitly learn the diet-microbe interactions by training a deep learning model using paired gut microbiome and dietary intake data of a large population. The well-trained deep learning model enables us to predict the microbial composition of any given species collection and dietary intake. Next, we prescribe personalized dietary recommendations by solving an optimization problem to achieve the desired microbial compositions. We systematically validated this Deep learning-based Personalized Dietary Recommendation (DPDR) framework using synthetic data generated from an established microbial consumer-resource model. We then validated DPDR using real data collected from a diet-microbiome association study. The presented DPDR framework demonstrates the potential of deep learning for personalized nutrition.
 
 
 # Repo Contents
