@@ -62,7 +62,7 @@ We have tested this code for Python 3.9.7 and Pytorch 2.1.0.
 | nutrient 6 | 0.0006     | 0      | 0     | 0.003     |
 
 
-# How the use the DPDR framework
+# How to use the DPDR framework
 Run Python code in "code" folder: "DPDR_mapping.py" by taking p.csv, z.csv and q.csv as input will output the predicted microbiome composition.
 Example: python DPDR_mapping.py --perturbation $perturbation --'sparsity' $sp --'connectivity' $C --noise $ep --ratio $ratio --fold $fold
 
