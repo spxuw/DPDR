@@ -9,7 +9,7 @@ Wang, X.W., Weiss, S.T. and Liu, Y.Y. [Deep Learning-based Personalized Dietary 
 
 ## Contents
 - [Overview](#overview)
-- [Environment] (#environment)
+- [Environment](#environment)
 - [Repo Contents](#repo-contents)
 - [Data type for DPDR](#Data-type-for-DKI)
 - [How the use the DPDR framework](#How-the-use-the-DPDR-framework)
@@ -28,7 +28,7 @@ We have tested this code for Python 3.9.7 and Pytorch 2.1.0.
 
 
 # Data type for DPDR
-## (1) Ptrain.csv: matrix of taxanomic profile of size N*M, where N is the number of taxa and M is the sample size (without header).
+## (1) p.csv: matrix of taxanomic profile of size N*M, where N is the number of taxa and M is the sample size (without header).
 
 |           | sample 1 | sample 2 | sample 3 | sample 4 |
 |-----------|----------|----------|----------|----------|
@@ -39,9 +39,7 @@ We have tested this code for Python 3.9.7 and Pytorch 2.1.0.
 | species 5 | 0        | 0        | 0        | 0.17     |
 | species 6 | 0.04     | 0.4      | 0.07     | 0.06     |
 
-## (2) Thought experiment: thought experiemt was realized by removing each present species in each sample. This will generated three data type.
-
-* Ztest.csv: matrix of perturbed species collection of size N*C, where N is the number of taxa and C is the total perturbed samples (without header).
+## (2) z.csv: pre-intervention species assemblage of size N*M, where N is the number of taxa and M is the sample size (without header).
 
 |           | sample 1 | sample 2 | sample 3 | sample 4 | sample 5 | sample 6 | sample 7 | sample 8 | sample 9 | sample 10 | sample 11 | sample 12 |
 |-----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|-----------|-----------|-----------|
@@ -52,39 +50,17 @@ We have tested this code for Python 3.9.7 and Pytorch 2.1.0.
 | species 5 | 0        | 0        | 0        | 0        | 0        | 0        | 0        | 0        | 0        | 1         | 0         | 1         |
 | species 6 | 1        | 1        | 0        | 1        | 1        | 0        | 1        | 1        | 0        | 1         | 1         | 0         |
 
-* Species_id: a list indicating which species has been removed in each sample.
+## (3) q.csv: dietary profile of size N*M, where S is the number of nutrient/food and M is the sample size (without header).
 
-| species |
-|---------|
-| 1       |
-| 2       |
-| 6       |
-| 1       |
-| 3       |
-| 6       |
-| 1       |
-| 4       |
-| 6       |
-| 1       |
-| 5       |
-| 6       |
+|           | sample 1 | sample 2 | sample 3 | sample 4 |
+|-----------|----------|----------|----------|----------|
+| nutrient 1 | 0.019     | 0.018     | 0.012     | 0.018     |
+| nutrient 2 | 0.03     | 0.026        | 0.025        | 0.025        |
+| nutrient 3 | 0.00085        | 0     | 0        | 0.0005        |
+| nutrient 4 | 0.015        | 0.014        | 0.01     | 0.012        |
+| nutrient 5 | 0.0019        | 0.0008        | 0.0007        | 0.0008     |
+| nutrient 6 | 0.0006     | 0      | 0     | 0.003     |
 
-* Sample_id: a list indicating which sample that the species been removed.
-
-| sample |
-|--------|
-| 1      |
-| 1      |
-| 1      |
-| 2      |
-| 2      |
-| 2      |
-| 3      |
-| 3      |
-| 3      |
-| 4      |
-| 4      |
-| 4      |
 
 # How the use the DPDR framework
 ## Step 1: Predict species compostion using perturbed species assemblage
