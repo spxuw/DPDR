@@ -4,18 +4,18 @@ This is a Pytorch implementation of DKI, as described in our paper:
 Wang, X.W., Weiss, S.T. and Liu, Y.Y. [Deep Learning-based Personalized Dietary Recommendations to Achieve Desired Gut Microbial Compositions ]. 
 
 <p align="center">
-  <img src="Paper/DPDR.png" alt="demo" width="600" height="470" style="display: block; margin: 0 auto;">
+  <img src="Papers/DPDR.png" alt="demo" width="600" height="470" style="display: block; margin: 0 auto;">
 </p>
 
 
-We have tested this code for Python 3.8.13 and R 4.1.2.
+We have tested this code for Python 3.8.13.
 
 ## Contents
 
 - [Overview](#overview)
 - [Repo Contents](#repo-contents)
-- [Data type for DKI](#Data-type-for-DKI)
-- [How the use the DKI framework](#How-the-use-the-DKI-framework)
+- [Data type for DPDR](#Data-type-for-DKI)
+- [How the use the DPDR framework](#How-the-use-the-DPDR-framework)
 
 # Overview
 
