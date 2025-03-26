@@ -7,12 +7,9 @@ Wang, X.W., Weiss, S.T. and Liu, Y.Y. [Deep Learning-based Personalized Dietary 
   <img src="Papers/DPDR.png" alt="demo" width="600" height="470" style="display: block; margin: 0 auto;">
 </p>
 
-
-We have tested this code for Python 3.8.13.
-
 ## Contents
-
 - [Overview](#overview)
+- [Environment] (#environment)
 - [Repo Contents](#repo-contents)
 - [Data type for DPDR](#Data-type-for-DKI)
 - [How the use the DPDR framework](#How-the-use-the-DPDR-framework)
@@ -21,15 +18,16 @@ We have tested this code for Python 3.8.13.
 
 Dietary intervention is an effective way to alter the gut microbiome to promote human health. Yet, due to our limited knowledge of diet-microbe interactions and the highly personalized gut microbial compositions, an efficient method to prescribe personalized dietary recommendations to achieve desired gut microbial compositions is still lacking. Here, we propose a deep learning framework to resolve this challenge. Our key idea is to implicitly learn the diet-microbe interactions by training a deep learning model using paired gut microbiome and dietary intake data of a large population. The well-trained deep learning model enables us to predict the microbial composition of any given species collection and dietary intake. Next, we prescribe personalized dietary recommendations by solving an optimization problem to achieve the desired microbial compositions. We systematically validated this Deep learning-based Personalized Dietary Recommendation (DPDR) framework using synthetic data generated from an established microbial consumer-resource model. We then validated DPDR using real data collected from a diet-microbiome association study. The presented DPDR framework demonstrates the potential of deep learning for personalized nutrition.
 
+# Environment
+We have tested this code for Python 3.9.7 and Pytorch 2.1.0.
 
 # Repo Contents
-(1) A synthetic dataset to test the Data-driven Keystone species Identification (DKI) framework.
+(1) A synthetic dataset to test the Deep Learning-based Personalized Dietary Recommendations (DPDR) framework.
 
-(2) Python code to predict the species composition using species assemblage (cNODE2) and R code to compute keystoneness.
+(2) Python code to predict the species composition using species assemblage and dietary profile (MLP).
 
-(3) Predicted species composition after removing each present species in each sample.
 
-# Data type for DKI
+# Data type for DPDR
 ## (1) Ptrain.csv: matrix of taxanomic profile of size N*M, where N is the number of taxa and M is the sample size (without header).
 
 |           | sample 1 | sample 2 | sample 3 | sample 4 |
@@ -88,7 +86,7 @@ Dietary intervention is an effective way to alter the gut microbiome to promote 
 | 4      |
 | 4      |
 
-# How the use the DKI framework
+# How the use the DPDR framework
 ## Step 1: Predict species compostion using perturbed species assemblage
 Run Python code "DKI.py" by taking Ptrain.csv and Ztest.csv as input will output the predicted microbiome composition using perturbed species colloction matrix Ztest.csv.
 The output file qtst.csv:
