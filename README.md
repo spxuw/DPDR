@@ -63,9 +63,8 @@ We have tested this code for Python 3.9.7 and Pytorch 2.1.0.
 
 
 # How the use the DPDR framework
-## Step 1: Predict species compostion using perturbed species assemblage
-Run Python code "DKI.py" by taking Ptrain.csv and Ztest.csv as input will output the predicted microbiome composition using perturbed species colloction matrix Ztest.csv.
-The output file qtst.csv:
+Run Python code in "code" folder: "DPDR_mapping.py" by taking p.csv, z.csv and q.csv as input will output the predicted microbiome composition.
+Example: python DPDR_mapping.py --perturbation $perturbation --'sparsity' $sp --'connectivity' $C --noise $ep --ratio $ratio --fold $fold
 
 
 
