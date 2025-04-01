@@ -96,7 +96,7 @@ def train_reptile(max_epochs,mb,LR,zll,pall,ztrn,ptrn,ztst,ptst,zval,pval,Qll,Q1
         # Training loss
         loss = 0
         for i in range(mb):
-            p_pred = model(torch.cat((batch_p[i], batch_d[i]), 0).unsqueeze(dim=0), batch_t).to(device)
+            p_pred = model(torch.cat((batch_p[i], batch_d[i]), 0).unsqueeze(dim=0)).to(device)
             p_pred = torch.reshape(p_pred, (1, N_s))
             loss += loss_bc(p_pred.unsqueeze(dim=0), batch_q[i].unsqueeze(dim=0))
         loss_train.append(loss.item() / mb)
@@ -104,7 +104,7 @@ def train_reptile(max_epochs,mb,LR,zll,pall,ztrn,ptrn,ztst,ptst,zval,pval,Qll,Q1
         # Validation loss
         l_val = 0
         for i in range(zval.size(dim=0)):
-            p_pred = model(torch.cat((zval[i], Q3[i]), 0).unsqueeze(dim=0), batch_t).to(device)
+            p_pred = model(torch.cat((zval[i], Q3[i]), 0).unsqueeze(dim=0)).to(device)
             p_pred = torch.reshape(p_pred, (1, N_s))
             l_val += loss_bc(p_pred.unsqueeze(dim=0), pval[i].unsqueeze(dim=0))
         loss_val.append(l_val.item() / zval.size(dim=0))
@@ -123,10 +123,10 @@ def train_reptile(max_epochs,mb,LR,zll,pall,ztrn,ptrn,ztst,ptst,zval,pval,Qll,Q1
             model = copy.deepcopy(best_model)
             if len(ztst.size()) == 2:
                 for i in range(ztst.size(dim=0)):
-                    pred_test = model(torch.cat((ztst[i], Q2[i]), 0).unsqueeze(dim=0), batch_t).to(device)
+                    pred_test = model(torch.cat((ztst[i], Q2[i]), 0).unsqueeze(dim=0)).to(device)
                     qtst[i, :] = pred_test.detach().numpy()
                 for i in range(ztrn.size(dim=0)):
-                    pred_test = model(torch.cat((ztrn[i], Q1[i]), 0).unsqueeze(dim=0), batch_t).to(device)
+                    pred_test = model(torch.cat((ztrn[i], Q1[i]), 0).unsqueeze(dim=0)).to(device)
                     qtrn[i, :] = pred_test.detach().numpy()
 
     return loss_train[-5:-1],qtst,qtrn
